@@ -1,0 +1,24 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+     <nav class="navbar navbar-default col-md-12">
+    
+    <div class="row">
+         
+            <span><h3>HOME</h3></span>
+            
+             <button mat-button *ngIf="authSrv.isAuthorized()"><a routerLink="/orders">Orders</a></button>
+            <button mat-button>About</button>
+     </div>
+    
+       
+        <ul class="nav navbar-nav navbar-right">
+        <li>
+        <button mat-button><a routerLinkActive="active" routerLink="/login" *ngIf="!authSrv.isAuthorized()">Login <span style="padding-left:20px"> | </span></a></button>
+        <button mat-button><a routerLinkActive="active" routerLink="/register" *ngIf="!authSrv.isAuthorized()">Register</a></button> 
+       <span *ngIf="authSrv.isAuthorized()">Welcome : {{currentUser?.firstName}}</span>
+       <button mat-button><a (click)="authSrv.logout()" *ngIf="authSrv.isAuthorized()">Log Out</a></button>
+          </li>
+        </ul>
+      </nav>
+  </mat-toolbar-row>
+</mat-toolbar>

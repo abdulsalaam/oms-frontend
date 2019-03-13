@@ -1,0 +1,34 @@
+<div class="col-md-12">
+  <h2> Order Details</h2>
+  <button class="btn btn-danger" (click)="addOrder()"> Add Order</button>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <!--<th class="hidden">Id</th>-->
+      <th>Product Id</th>
+      <th>Description</th>
+      <th>Amount</th>
+      <th>Total</th>
+      <th>Status</th>
+       <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let order of orders?.data">
+      <!--<td class="hidden">{{order._id}}</td>-->
+      <td>{{order?.productId}}</td>
+      <td>{{order?.description}}</td>
+      <td>{{order?.amount}}</td>
+      <td>{{order?.total}}</td>
+      <td>{{order?.status}}</td>
+      <td>
+        <button class="btn btn-danger" (click)="deleteOrder(order)"> Delete</button>
+        <button class="btn btn-danger" (click)="editOrder(order)" style="margin-left: 20px;"> Edit</button>
+        <button class="btn btn-danger" *ngIf="order.status!== 'confirmed'" (click)="viewOrder(order)" style="margin-left: 20px;"> view/payment</button>
+        <button class="btn btn-danger" *ngIf="order.status === 'confirmed'" (click)="viewOrder(order)" style="margin-left: 20px;"> view</button>
+        </td>
+    </tr>
+    <tr *ngIf="!orders?.data"><td colspan="5">No Order found</td></tr>
+    </tbody>
+  </table>
+</div>

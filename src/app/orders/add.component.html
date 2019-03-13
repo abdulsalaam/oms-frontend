@@ -1,0 +1,21 @@
+<div class="col-md-6">
+  <h2 class="text-center">Create New Order</h2>
+  <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="email">Product Id:</label>
+      <input type="text" formControlName="productId" placeholder="Product Id" name="productId" class="form-control" id="productId">
+    </div>
+
+    <div class="form-group">
+      <label for="description">Description:</label>
+      <input formControlName="description" placeholder="Decription" name="description" class="form-control" id="description">
+    </div>
+
+    <div class="form-group">
+      <label for="amount">Amount:</label>
+      <input formControlName="amount" placeholder="Amount" name="amount" class="form-control" id="amount">
+    </div>
+
+    <button class="btn btn-success">Create</button>
+  </form>
+</div>
